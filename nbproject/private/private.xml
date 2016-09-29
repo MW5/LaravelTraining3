@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/MW5/Documents/NetBeansProjects/pgelectric2/resources/views/layouts/app.blade.php</file>
+            <file>file:/C:/Users/MW5/Documents/NetBeansProjects/pgelectric2/public/js/app.js</file>
+            <file>file:/C:/Users/MW5/Documents/NetBeansProjects/pgelectric2/app/Http/Controllers/galleryController.php</file>
+            <file>file:/C:/Users/MW5/Documents/NetBeansProjects/pgelectric2/database/migrations/2016_09_29_185007_create_jobs_table.php</file>
+            <file>file:/C:/Users/MW5/Documents/NetBeansProjects/pgelectric2/database/migrations/2016_09_29_185240_create_job_pics_table.php</file>
+            <file>file:/C:/Users/MW5/Documents/NetBeansProjects/pgelectric2/public/css/app.css</file>
+            <file>file:/C:/Users/MW5/Documents/NetBeansProjects/pgelectric2/resources/views/gallery/jobs.blade.php</file>
+            <file>file:/C:/Users/MW5/Documents/NetBeansProjects/pgelectric2/routes/web.php</file>
+        </group>
+    </open-files>
+</project-private>
