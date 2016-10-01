@@ -40,7 +40,7 @@
     color: rgb(255,120,5);
 }
 
-/*carousel*/
+/*home carousel*/
 .carousel-caption {
     font-size: 50px;
     color: rgb(255,120,5);
@@ -295,6 +295,13 @@
 }
 .gallery_thumbnail_container a:hover {
     text-decoration: none;
+}
+
+/*gallery_carousel*/
+.job_pics_container {
+    padding-top: 130px;
+    background-image: url('/images/pattern_bg_vert_mirr.png');
+    background-repeat: repeat-y;
 }
 
 /*media*/
