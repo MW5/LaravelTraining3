@@ -293,7 +293,4 @@
             </div>
         </div>
     @stop
-    @section('footer')
-    <h1>ADD FOOTER!</h1>
-    @stop
 </html>

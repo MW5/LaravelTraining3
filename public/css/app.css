@@ -287,6 +287,15 @@
     background-image: url('/images/pattern_bg_vert_mirr.png');
     background-repeat: repeat-y;
 }
+.gallery_thumbnail_container h3 {
+    color: rgb(255,120,5);
+}
+.gallery_thumbnail_container p {
+    color: black;
+}
+.gallery_thumbnail_container a:hover {
+    text-decoration: none;
+}
 
 /*media*/
 @media screen and (max-width: 760px) {

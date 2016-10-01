@@ -18,7 +18,7 @@
             </button>
             <a class="navbar-brand" href="/">
                 <div id="logo-background-rotated">
-                    <img id='nav_logo_pic' alt="Brand" src="images/PGElectric_logo.png">
+                    <img id='nav_logo_pic' alt="Brand" src="/images/PGElectric_logo.png">
                 </div>
             </a>
           </div>
@@ -26,7 +26,7 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="/">Back</a></li>
+                <li><a href="/gallery">Back</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -34,29 +34,12 @@
     @stop
     
     @section('jobs_gallery')
-    <div class='container-fluid gallery_thumbnail_container'>
+    <div class='container-fluid job_pics_container'>
         <div class='container'>
-            @foreach($jobs as $index => $job)
-                @if($index%3==0)
-                    <div class="row">
-                @endif
-                        <div class="col-sm-6 col-md-4">
-                            <a href="/jobs/{{$job->id}}">
-                                <div class="thumbnail">
-                                    <img src="{{$job->thumbnail_src}}" alt="{{$index}}ALT_TEXT">
-                                    <div class="caption">
-                                        <h3>{{$job->job_heading}}</h3>
-                                        <p>{{$job->job_description}}</p>
-                                        <p><a href="#" class="btn btn-primary" role="button">ADMIN_DELETE</a></p>
-                                    </div>
-                                </div>
-                            </a>  
-                        </div>
-                @if(($index+1)%3==0)
-                    </div>
-                @endif
-            @endforeach
+            <p> HERE SOME STUFF</p>
         </div>
     </div>
     @stop
 </html>
+
+

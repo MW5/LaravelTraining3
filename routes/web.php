@@ -13,4 +13,4 @@
 
 Route::get('/', 'pageController@home');
 Route::get('/gallery', 'galleryController@listJobs');
-
+Route::get('/jobs/{job}', 'galleryController@showJob');
