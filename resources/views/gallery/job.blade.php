@@ -37,7 +37,7 @@
         <div class='container-fluid job_pics_container'>
             <div class='container'>
                 @if(count($job->jobPics)==0)
-                    <div>NIMA ZDJECIOW</div>
+                    <div id="no_photos">No photos in this gallery</div>
                 @else
                     <div id="gallery_carousel" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
