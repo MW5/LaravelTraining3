@@ -18,7 +18,7 @@
             </button>
             <a class="navbar-brand" href="/">
                 <div id="logo-background-rotated">
-                    <img id='nav_logo_pic' alt="Brand" src="images/PGElectric_logo.png">
+                    <img id='nav_logo_pic' alt="Brand" src="{{URL::asset('images/PGElectric_logo.png')}}">
                 </div>
             </a>
           </div>
@@ -43,7 +43,7 @@
                         <div class="col-sm-6 col-md-4">
                             <a href="/jobs/{{$job->id}}">
                                 <div class="thumbnail">
-                                    <img src="{{$job->thumbnail_src}}" alt="{{$index}}ALT_TEXT">
+                                    <img src="{{URL::asset($job->thumbnail_src)}}" alt="{{$index}}ALT_TEXT">
                                     <div class="caption">
                                         <h3>{{$job->job_heading}}</h3>
                                         <p>{{$job->job_description}}</p>

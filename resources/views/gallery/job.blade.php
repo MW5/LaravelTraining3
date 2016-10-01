@@ -18,7 +18,7 @@
             </button>
             <a class="navbar-brand" href="/">
                 <div id="logo-background-rotated">
-                    <img id='nav_logo_pic' alt="Brand" src="/images/PGElectric_logo.png">
+                    <img id='nav_logo_pic' alt="Brand" src="{{URL::asset('images/PGElectric_logo.png')}}">
                 </div>
             </a>
           </div>
@@ -33,46 +33,49 @@
     </nav>
     @stop
     
-    @section('jobs_gallery')
-    <div class='container-fluid job_pics_container'>
-        <div class='container'>
-            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                    @foreach($job_pics as $pic)
-                        @if($job->count==0)
-                            <div>NIMA ZDJECIOW</div>
-                        @elseif($pic->id == 0)
-                            <div class="item active">
-                                <img src="{{$pic->pic_src}}" alt="picture {{pic->id}}">
-                            </div>
-                        @else
-                            <div class="item">
-                                <img src="{{$pic->pic_src}}" alt="picture {{pic->id}}">
-                            </div>
-                        @endif
-                    @endforeach
-                </div>
-
-                <!-- Controls -->
-                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-              </div>
+    @section('job_pics')
+        <div class='container-fluid job_pics_container'>
+            <div class='container'>
+                @if(count($job->jobPics)==0)
+                    <div>NIMA ZDJECIOW</div>
+                @else
+                    <div id="gallery_carousel" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                                <?php $i=0;?>
+                            @foreach($job->jobPics as $pic)
+                                @if($job->jobPics->first()->id == $pic->id)
+                                    <li data-target="#gallery_carousel" data-slide-to="<?php echo($i);?>" class="active"></li>
+                                @else
+                                    <li data-target="#gallery_carousel" data-slide-to="<?php echo($i);?>"></li>    
+                                @endif
+                                <?php $i++;?>
+                            @endforeach
+                        </ol>
+                        <div class="carousel-inner" role="listbox">
+                                @foreach($job->jobPics as $pic)
+                                    @if($job->jobPics->first()->id == $pic->id)
+                                        <div class="item active">
+                                            <img src="{{URL::asset($pic->pic_src)}}" alt="picture_{{$pic->id}}">
+                                        </div>
+                                    @else
+                                        <div class="item">
+                                            <img src="{{URL::asset($pic->pic_src)}}" alt="picture_{{$pic->id}}">
+                                        </div>
+                                    @endif
+                                @endforeach
+                        </div>
+                        <a class="left carousel-control" href="#gallery_carousel" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#gallery_carousel" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                @endif
+            </div>
         </div>
-    </div>
     @stop
 </html>
 

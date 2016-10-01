@@ -13,7 +13,7 @@ class CreateJobPicsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pics', function (Blueprint $table) {
+        Schema::create('job_pics', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('job_id');
             $table->text('pic_src');

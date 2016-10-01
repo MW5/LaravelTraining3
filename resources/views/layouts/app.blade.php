@@ -7,9 +7,9 @@
         @yield('title')
         <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
-        <script src="public/js/jquery-3.1.1.js"></script>
-        <script src="public/js/bootstrap.min.js"></script>
-        <script src="public/js/app.js"></script>
+        <script src="{{ URL::asset('js/jquery-3.1.1.js')}}"></script>
+        <script src="{{ URL::asset('js/bootstrap.min.js')}}"></script>
+        <script src="{{ URL::asset('js/app.js')}}"></script>
     </head>
     <body>
         @yield('nav')
@@ -23,6 +23,7 @@
         @yield('map')
         @yield('contact')
         @yield('jobs_gallery')
+        @yield('job_pics')
         <h1>ADD FOOTER!</h1>
     </body>
 </html>
