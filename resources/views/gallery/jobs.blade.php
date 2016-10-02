@@ -28,8 +28,8 @@
             <ul class="nav navbar-nav">
                 <li><a href="/">Back</a></li>
             </ul>
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
+          </div>
+        </div>
     </nav>
     @stop
     
@@ -47,7 +47,6 @@
                                     <div class="caption">
                                         <h3>{{$job->job_heading}}</h3>
                                         <p>{{$job->job_description}}</p>
-                                        <p><a href="#" class="btn btn-primary" role="button">ADMIN_DELETE</a></p>
                                     </div>
                                 </div>
                             </a>  

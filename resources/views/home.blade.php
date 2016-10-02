@@ -138,6 +138,11 @@
                 </ul>
             </div>
     @stop
+    @section('recommendations')
+        <div class="container-fluid">
+            <a href="#" id="recommendation_list"><h1>CHANGE THIS DIV FOR RECOMMENDATIONS, ADD NAV</h1></a>
+        </div>
+    @stop
     @section('offer')
             <div class="container offer_heading_container" id="offer">
                 <h1>Our offer</h1>

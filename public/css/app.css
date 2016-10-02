@@ -122,7 +122,7 @@ body {
 /*thumbnail*/
 .thumbnail_container {
     padding: 5vh 0 5vh 0;
-    background-image: url('/images/pattern_bg.png');
+    background-image: url('/images/pattern_bg_vert_mirr.png');
 }
 .thumbnail {
     background-color: #DDDFDF;
@@ -167,7 +167,7 @@ body {
 
 /*fix to use one background pic for two sections*/
 .bg_fix_pros_offer {
-    background-image: url('/images/pattern_bg.png');
+    background-image: url('/images/pattern_bg_vert_mirr.png');
 }
 /*about pros*/
 .about_pros_container {
