@@ -5,17 +5,17 @@
     @stop
     
     @section('nav')
-    <nav class="navbar navbar-default navbar-fixed-top"">
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav_links" aria-expanded="false">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="#carousel">
                 <div id="logo-background-rotated">
                     <img id='nav_logo_pic' alt="Brand" src="images/PGElectric_logo.png">
                 </div>
@@ -23,16 +23,16 @@
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <div class="collapse navbar-collapse" id="nav_links">
             <ul class="nav navbar-nav">
-                <li><a href="#">Start</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Offer</a></li>
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#carousel">Start</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#offer">Offer</a></li>
+                <li><a href="#gallery_link">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
+          </div>
+        </div>
       </nav>
     @stop
     
@@ -63,7 +63,7 @@
     </div>
     @stop
     @section('credo')
-    <div class="container-fluid thumbnail_container">
+    <div class="container-fluid thumbnail_container" id="about">
         <div class="container">
             <div class="row">
                 <div class="col-xs-6 col-md-3">
@@ -139,7 +139,7 @@
             </div>
     @stop
     @section('offer')
-            <div class="container offer_heading_container">
+            <div class="container offer_heading_container" id="offer">
                 <h1>Our offer</h1>
             </div>
             <div class="container offer_thumbnails_container">
@@ -215,12 +215,12 @@
         </div>
     @stop
     @section('gallery')
-    <div class="container-fluid gallery_link_container">
+    <div class="container-fluid gallery_link_container" id="gallery_link">
         <a href="/gallery" id="gallery_link"><h1>Click to enter the gallery</h1></a>
     </div>
     @stop
     @section('address')
-        <div class="container-fluid address_container">
+        <div class="container-fluid address_container" id="contact">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-md-4">
@@ -246,13 +246,15 @@
             </div>
         </div>
     @stop
-    @section('map')
-        <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2486.
-                289150303755!2d-0.11727678422743473!3d51.
-                452847379626206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.
-                1!3m3!1m2!1s0x4876046acb989eb9%3A0xb14795907bdd2493!2s55+
-                Leander+Rd%2C+Brixton%2C+London+SW2+2NB%2C+Wielka+Brytania
-                !5e0!3m2!1spl!2spl!4v1475007940847" frameborder="0" allowfullscreen></iframe>
+    @section('map') 
+        <div class="container-fluid map_container">
+            <iframe id="map" class="scrolloff" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2486.
+                    289150303755!2d-0.11727678422743473!3d51.
+                    452847379626206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.
+                    1!3m3!1m2!1s0x4876046acb989eb9%3A0xb14795907bdd2493!2s55+
+                    Leander+Rd%2C+Brixton%2C+London+SW2+2NB%2C+Wielka+Brytania
+                    !5e0!3m2!1spl!2spl!4v1475007940847" frameborder="0" allowfullscreen></iframe>
+        </div>
     @stop
     @section('contact')
         <div class="container-fluid contact_container">
