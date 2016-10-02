@@ -4,7 +4,6 @@ html {
 }
 body {
   position: relative;
-  
 }
 /*nav*/
 #logo-background-rotated {
@@ -17,7 +16,7 @@ body {
     border: 2px solid rgb(255,120,5);
 }
 #nav_logo_pic {
-    height: 140%;
+    height: 200px;
     transform: rotate(-45deg);
 }
 
@@ -276,7 +275,7 @@ body {
     height:350px;
 }
 .scrolloff {
-        pointer-events: none;
+    pointer-events: none;
 }
 
 /*contact*/
@@ -331,6 +330,25 @@ body {
     text-align: center;
     font-size: 50px;
     color: rgb(255,120,5);
+}
+
+#login_form_container {
+    background: linear-gradient(black, #4f4e4e);
+    height: 100vh;
+    text-align: center;
+    padding-top: 30vh;
+}
+
+#login_form_container .panel-body, #login_form_container .panel-heading {
+    background-color: #DDDFDF;
+    opacity: 0.9;
+}
+#login_form_container h2 {
+    color: rgb(255,120,5);
+}
+#login_form_container input:focus, #login_form_container textarea:focus {
+    box-shadow: 0 0 5px rgb(255,120,5);
+    border: 1px solid rgb(255,120,5);
 }
 
 /*media*/

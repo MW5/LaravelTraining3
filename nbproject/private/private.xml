@@ -5,6 +5,8 @@
         <group>
             <file>file:/C:/Users/MW5/Documents/NetBeansProjects/pgelectric2/resources/views/layouts/app.blade.php</file>
             <file>file:/C:/Users/MW5/Documents/NetBeansProjects/pgelectric2/resources/views/auth/passwords/email.blade.php</file>
+            <file>file:/C:/Users/MW5/Documents/NetBeansProjects/pgelectric2/app/Http/Controllers/admController.php</file>
+            <file>file:/C:/Users/MW5/Documents/NetBeansProjects/pgelectric2/resources/views/auth/admPanel.blade.php</file>
             <file>file:/C:/Users/MW5/Documents/NetBeansProjects/pgelectric2/resources/views/auth/login.blade.php</file>
             <file>file:/C:/Users/MW5/Documents/NetBeansProjects/pgelectric2/resources/views/auth/passwords/reset.blade.php</file>
             <file>file:/C:/Users/MW5/Documents/NetBeansProjects/pgelectric2/public/css/app.css</file>

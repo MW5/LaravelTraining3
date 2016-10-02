@@ -17,7 +17,7 @@
         @yield('adm_login')
         @yield('adm_reset')
         @yield('adm_email')
-        @yield('adm_page')
+        @yield('adm_panel')
         @yield('carousel')
         @yield('credo')
         @yield('about_introduction')

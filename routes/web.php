@@ -17,4 +17,4 @@ Route::get('/gallery', 'galleryController@listJobs');
 Route::get('/jobs/{job}', 'galleryController@showJob');
 
 Auth::routes();
-Route::get('/ptradm', 'admController@login');
+Route::get('/admpanel', 'admController@showPanel');

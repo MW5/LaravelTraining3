@@ -8,11 +8,12 @@ use App\Http\Requests;
 
 class admController extends Controller
 {           
-    public function login() {
-        return view('auth.login');
-    }
-        public function __construct()
+    public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    public function showPanel() {
+        return view('auth.admPanel');
     }
 }
