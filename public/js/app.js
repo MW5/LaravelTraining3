@@ -31,7 +31,11 @@ $(document).ready(function() {
     $("#map").mouseleave(function () {
         $('#map').addClass('scrolloff'); // set the pointer events to none when mouse leaves the map area
     });
-        
+     
+    //modal stuff
+    $('#add_job_modal').on('shown.bs.modal', function () {
+        $('#add_job_modal_input').focus()
+    })
 })
 
 

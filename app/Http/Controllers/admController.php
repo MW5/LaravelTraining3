@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use DB;
 
 class admController extends Controller
 {           
@@ -12,8 +13,11 @@ class admController extends Controller
     {
         $this->middleware('auth');
     }
-
+    
     public function showPanel() {
-        return view('auth.admPanel');
+        $jobs = DB::table('jobs')->get();
+        $job_pics = DB::table('job_pics')->get();
+        //$recommendations here as well
+        return view('auth.admPanel', compact('jobs','job_pics'));
     }
 }

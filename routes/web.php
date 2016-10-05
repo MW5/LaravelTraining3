@@ -18,3 +18,7 @@ Route::get('/jobs/{job}', 'galleryController@showJob');
 
 Auth::routes();
 Route::get('/admpanel', 'admController@showPanel');
+Route::post('/admpanel/addJob', 'admJobController@addJob');
+
+//Route::post('/cards/{card}/addNotes', 'notesController@addNotes');
+//Route::post('/cards/addCard', 'cardsController@addCard');
