@@ -58,13 +58,24 @@
             @endif
             <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#add_job_modal">Add job</button>
             @foreach($jobs as $job)
+            <form id="remove_job_form" method="POST" action="/admpanel/removeJob/{{$job->id}}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <h3>{{$job->job_heading}}</h3>
-                <ol class="adm_jobs_list">
+                <button form="remove_job_form" type="submit" class="btn btn-primary">Remove this job</button>
+                <button form="remove_pics_form" type="submit" class="btn btn-primary">Remove selected pictures</button>
+            </form>
+                <ol>
+                    <form id="remove_pics_form" method="POST" action="/admpanel/removePics/">
                     @foreach ($job_pics as $jobPic)
                         @if($jobPic->job_id == $job->id)
-                            <li>{{$jobPic->pic_src}}</li>
+                            <li>
+                                <input type="checkbox" name="pics" value="{{$jobPic->id}}">
+                                <img src="{{$jobPic->pic_src}}" class="adm_job_thumbnail" alt="jobPic">
+                                {{$jobPic->pic_src}}
+                            </li>
                         @endif
                     @endforeach
+                    </form>
                 </ol>
             @endforeach 
             

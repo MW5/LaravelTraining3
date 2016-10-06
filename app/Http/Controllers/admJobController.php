@@ -21,7 +21,6 @@ class admJobController extends Controller
             'job_thumbnail_pic'=>'dimensions:width=2700,height=1500'
         ]);
           
-        
         $destinationPath = "images/Uploaded/";
         $name = $request->job_thumbnail_pic->getClientOriginalName();
         $request->job_thumbnail_pic->move($destinationPath, $name);
@@ -31,6 +30,11 @@ class admJobController extends Controller
         $job->job_heading = $request->job_heading;
         $job->job_description= $request->job_description;
         $job->save();
+        return back();
+    }
+    
+    public function removeJob(Job $job) {
+        $job->delete();
         return back();
     }
 }
