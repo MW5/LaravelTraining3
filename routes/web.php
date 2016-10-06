@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/admpanel', 'admController@showPanel');
 Route::post('/admpanel/addJob', 'admJobController@addJob');
 Route::post('/admpanel/removeJob/{job}', 'admJobController@removeJob');
+Route::post('/admpanel/addPic/', 'admJobPicController@addPic');
 Route::post('/admpanel/removePics/', 'admJobPicController@removePics');
 
 //Route::post('/cards/{card}/addNotes', 'notesController@addNotes');

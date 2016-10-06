@@ -58,18 +58,51 @@
             @endif
             <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#add_job_modal">Add job</button>
             @foreach($jobs as $job)
+                <div class="modal fade" tabindex="-1" role="dialog" id="add_pic_modal_{{$job->id}}">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">Add job picture</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form id="add_pic_form" method="POST" action="/admpanel/addPic" enctype="multipart/form-data">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    
+                                    <div class="form-group">
+                                        IMPORTANT! PICS MUST BE 2700 WIDE 1500 HIGH (2700x1500)
+                                        <input type="file" class="form-control" name="job_pic"">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="hidden" class="form-control" name="job_id" value="{{$job->id}}"></input>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button form="add_pic_form" type="submit" class="btn btn-primary">Add picture</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <form id="remove_job_form" method="POST" action="/admpanel/removeJob/{{$job->id}}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <h3>{{$job->job_heading}}</h3>
-                <button form="remove_job_form" type="submit" class="btn btn-primary">Remove this job</button>
-                <button form="remove_pics_form" type="submit" class="btn btn-primary">Remove selected pictures</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_pic_modal_{{$job->id}}">Add picture</button>
+                <span class="pull-right">
+                    <button form="remove_job_form" type="submit" class="btn btn-primary">Remove this job</button>
+                    <button form="remove_pics_form" type="submit" class="btn btn-primary">Remove selected pictures</button>
+                </span>
             </form>
                 <ol>
                     <form id="remove_pics_form" method="POST" action="/admpanel/removePics/">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     @foreach ($job_pics as $jobPic)
                         @if($jobPic->job_id == $job->id)
                             <li>
-                                <input type="checkbox" name="pics" value="{{$jobPic->id}}">
+                                <input type="checkbox" name="ch[]" value="{{$jobPic->id}}">
                                 <img src="{{$jobPic->pic_src}}" class="adm_job_thumbnail" alt="jobPic">
                                 {{$jobPic->pic_src}}
                             </li>
@@ -91,7 +124,7 @@
                     <h4 class="modal-title">Add job</h4>
                 </div>
                 <div class="modal-body">
-                    <form method="POST" action="/admpanel/addJob" enctype="multipart/form-data">
+                    <form id="add_job_form" method="POST" action="/admpanel/addJob" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         
                         <div class="form-group">
@@ -108,12 +141,11 @@
                             <textarea class="form-control" name="job_description"
                                       placeholder='2-300 characters'>{{old('job_description')}}</textarea>
                         </div>
-                        
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Add card</button>
-                    </form>
+                    <button form="add_job_form" type="submit" class="btn btn-primary">Add card</button>
                 </div>
             </div>
         </div>

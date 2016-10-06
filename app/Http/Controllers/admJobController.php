@@ -34,7 +34,17 @@ class admJobController extends Controller
     }
     
     public function removeJob(Job $job) {
-        $job->delete();
+        foreach ($job->jobPics as $jobPic) {
+            //delete jobPic files here first!!!
+            
+            $jobPic->delete();
+        }
+        //delete job thumbnail pic here first!!!
+        
+        //$job->delete();
+        
         return back();
+        //remove thumbnail file
+        //remove pic files
     }
 }
