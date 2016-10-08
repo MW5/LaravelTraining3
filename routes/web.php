@@ -23,5 +23,5 @@ Route::post('/admpanel/removeJob/{job}', 'admJobController@removeJob');
 Route::post('/admpanel/addPic/', 'admJobPicController@addPic');
 Route::post('/admpanel/removePics/', 'admJobPicController@removePics');
 
-//Route::post('/cards/{card}/addNotes', 'notesController@addNotes');
-//Route::post('/cards/addCard', 'cardsController@addCard');
+Route::patch('/admpanel/editJobHeading/{job}', 'admJobController@editHeading');
+Route::patch('/admpanel/editJobDescription/{job}', 'admJobController@editDescription');

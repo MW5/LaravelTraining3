@@ -56,68 +56,122 @@
                     </ul>
                 </div>
             @endif
-            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#add_job_modal">Add job</button>
+            <button type="button" class="btn btn-primary btn-lg adm_btn_green" data-toggle="modal" data-target="#add_job_modal">Add job</button>
             @foreach($jobs as $job)
-                <div class="modal fade" tabindex="-1" role="dialog" id="add_pic_modal_{{$job->id}}">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title">Add job picture</h4>
-                            </div>
-                            <div class="modal-body">
-                                <form id="add_pic_form" method="POST" action="/admpanel/addPic" enctype="multipart/form-data">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                    
-                                    <div class="form-group">
-                                        IMPORTANT! PICS MUST BE 2700 WIDE 1500 HIGH (2700x1500)
-                                        <input type="file" class="form-control" name="job_pic"">
-                                    </div>
+                <div class="gallery_manager_job_container">
+                    <div class="modal fade" tabindex="-1" role="dialog" id="add_pic_modal_{{$job->id}}">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content adm_modal">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">Add job picture</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="add_pic_form_{{$job->id}}" method="POST" action="/admpanel/addPic" enctype="multipart/form-data">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                                    <div class="form-group">
-                                        <input type="hidden" class="form-control" name="job_id" value="{{$job->id}}"></input>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button form="add_pic_form" type="submit" class="btn btn-primary">Add picture</button>
+                                        <div class="form-group">
+                                            IMPORTANT! PICS MUST BE 2700 WIDE 1500 HIGH (2700x1500)
+                                            <input type="file" class="form-control" name="job_pic"">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="hidden" class="form-control" name="job_id" value="{{$job->id}}"></input>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default adm_btn_red" data-dismiss="modal">Close</button>
+                                    <button form="add_pic_form_{{$job->id}}" type="submit" class="btn btn-primary adm_btn_green">Add picture</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            <form id="remove_job_form" method="POST" action="/admpanel/removeJob/{{$job->id}}">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <h3>{{$job->job_heading}}</h3>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_pic_modal_{{$job->id}}">Add picture</button>
-                <span class="pull-right">
-                    <button form="remove_job_form" type="submit" class="btn btn-primary">Remove this job</button>
-                    <button form="remove_pics_form" type="submit" class="btn btn-primary">Remove selected pictures</button>
-                </span>
-            </form>
-                <ol>
-                    <form id="remove_pics_form" method="POST" action="/admpanel/removePics/">
+                    <div class="modal fade" tabindex="-1" role="dialog" id="edit_heading_modal_{{$job->id}}">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content adm_modal">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">Edit heading</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="edit_heading_form_{{$job->id}}" method="POST" action="/admpanel/editJobHeading/{{$job->id}}">
+                                    {{method_field('PATCH')}}
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="job_heading" placeholder='{{$job->job_heading}}'>{{old('new_heading')}}</input>
+                                    </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default adm_btn_red" data-dismiss="modal">Close</button>
+                                    <button form="edit_heading_form_{{$job->id}}" type="submit" class="btn btn-primary adm_btn_green">Edit heading</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" tabindex="-1" role="dialog" id="edit_description_modal_{{$job->id}}">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content adm_modal">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">Edit description</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="edit_description_form_{{$job->id}}" method="POST" action="/admpanel/editJobDescription/{{$job->id}}">
+                                    {{method_field('PATCH')}}
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <div class="form-group">
+                                        <textarea class="form-control" name="job_description" placeholder='{{$job->job_description}}'>{{old('new_description')}}</textarea>
+                                    </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default adm_btn_red" data-dismiss="modal">Close</button>
+                                    <button form="edit_description_form_{{$job->id}}" type="submit" class="btn btn-primary adm_btn_green">Edit description</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form id="remove_job_form_{{$job->id}}" method="POST" action="/admpanel/removeJob/{{$job->id}}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    @foreach ($job_pics as $jobPic)
-                        @if($jobPic->job_id == $job->id)
-                            <li>
-                                <input type="checkbox" name="ch[]" value="{{$jobPic->id}}">
-                                <img src="{{$jobPic->pic_src}}" class="adm_job_thumbnail" alt="jobPic">
-                                {{$jobPic->pic_src}}
-                            </li>
-                        @endif
-                    @endforeach
+                        <h2 class="adm_job_heading">{{$job->job_heading}}</h2>
+                        <p class="adm_job_description">{{$job->job_description}}</p>
+                        <button type="button" class="btn btn-primary adm_btn_green" data-toggle="modal" data-target="#add_pic_modal_{{$job->id}}">Add picture</button>
+                        <button type="button" class="btn btn-primary adm_btn_green" data-toggle="modal" data-target="#edit_heading_modal_{{$job->id}}">Edit heading</button>
+                        <button type="button" class="btn btn-primary adm_btn_green" data-toggle="modal" data-target="#edit_description_modal_{{$job->id}}">Edit description</button>
+
+                        <span class="pull-right">
+                            <button form="remove_job_form_{{$job->id}}" type="submit" class="btn btn-primary adm_btn_red">Remove this job</button>
+                            <button form="remove_pics_form_{{$job->id}}" type="submit" class="btn btn-primary adm_btn_red">Remove selected pictures</button>
+                        </span>
                     </form>
-                </ol>
+                    <ol>
+                        <form id="remove_pics_form_{{$job->id}}" method="POST" action="/admpanel/removePics/">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        @foreach ($job_pics as $jobPic)
+                            @if($jobPic->job_id == $job->id)
+                                <li>
+                                    <input type="checkbox" name="ch[]" value="{{$jobPic->id}}">
+                                    <img src="{{$jobPic->pic_src}}" class="adm_job_thumbnail" alt="jobPic">
+                                    {{$jobPic->pic_src}}
+                                </li>
+                            @endif
+                        @endforeach
+                        </form>
+                    </ol>
+                </div>    
             @endforeach 
-            
         </div>
     </div>
     
     <div class="modal fade" tabindex="-1" role="dialog" id="add_job_modal">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content adm_modal">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
@@ -144,11 +198,12 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button form="add_job_form" type="submit" class="btn btn-primary">Add card</button>
+                    <button type="button" class="btn btn-default adm_btn_red" data-dismiss="modal">Close</button>
+                    <button form="add_job_form" type="submit" class="btn btn-primary adm_btn_green">Add job</button>
                 </div>
             </div>
         </div>
     </div>
+    
     @stop
 </html>

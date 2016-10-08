@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use DB;
 use App\JobPic;
+use File;
 
 class admJobPicController extends Controller
 {
@@ -19,13 +20,14 @@ class admJobPicController extends Controller
             'job_pic'=>'dimensions:width=2700,height=1500'
         ]);
           
-        $destinationPath = "images/Uploaded/";
+        $destinationPath = "images/Uploaded/Job_$request->job_id/";
         $name = $request->job_pic->getClientOriginalName();
         $request->job_pic->move($destinationPath, $name);
         
         $jobPic = new JobPic();
         $jobPic->pic_src = $destinationPath.$name;
         $jobPic->job_id = $request->job_id;
+
         $jobPic->save();
         return back();
     }
@@ -33,14 +35,10 @@ class admJobPicController extends Controller
         if(count($request->get('ch')) != 0) {
             foreach($request->get('ch') as $jP) {
                 $jobPic = JobPic::find($jP);
-                
-                //REMOVE JOB PIC FILE HERE FIRST!!!
-                
+                File::delete($jobPic->pic_src);
                 $jobPic->delete();
             }
         }
-        
-        //REMOVE THE FILES AS WELL!!
         return back();
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Job;
+use File;
 
 class admJobController extends Controller
 {
@@ -35,16 +36,30 @@ class admJobController extends Controller
     
     public function removeJob(Job $job) {
         foreach ($job->jobPics as $jobPic) {
-            //delete jobPic files here first!!!
-            
+            File::delete($jobPic->pic_src);
             $jobPic->delete();
         }
-        //delete job thumbnail pic here first!!!
         
-        //$job->delete();
+        File::delete($job->thumbnail_src);
+        File::deleteDirectory("images/Uploaded/Job_$job->id");
+        $job->delete();
         
         return back();
-        //remove thumbnail file
-        //remove pic files
+    }
+    
+    public function editHeading(Request $request, Job $job) {
+        $this->validate($request, [
+            'job_heading'=>'required|min:2|max:50',
+        ]);
+        $job->update($request->all());
+        return back();
+    }
+    
+    public function editDescription(Request $request, Job $job) {
+        $this->validate($request, [
+            'job_description'=>'required|min:2|max:300',
+        ]);
+        $job->update($request->all());
+        return back();
     }
 }

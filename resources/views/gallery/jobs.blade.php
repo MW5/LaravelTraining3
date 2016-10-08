@@ -18,7 +18,7 @@
             </button>
             <a class="navbar-brand" href="/">
                 <div id="logo-background-rotated">
-                    <img id='nav_logo_pic' alt="Brand" src="{{URL::asset('images/Uploaded/PGElectric_logo.png')}}">
+                    <img id='nav_logo_pic' alt="Brand" src="{{URL::asset('images/PGElectric_logo.png')}}">
                 </div>
             </a>
           </div>
@@ -51,7 +51,7 @@
                                 </div>
                             </a>  
                         </div>
-                @if(($index+1)%3==0)
+                @if(($index-2)%3==0 || $index==count($jobs)-1)
                     </div>
                 @endif
             @endforeach
