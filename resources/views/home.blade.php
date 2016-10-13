@@ -24,9 +24,10 @@
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="nav_links">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav pull-right">
                 <li><a href="#carousel">Start</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#ratings">Ratings</a></li>
                 <li><a href="#offer">Offer</a></li>
                 <li><a href="#gallery_link">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -126,8 +127,8 @@
         </div>
     @stop
     @section('about_pros')
-        <div class="container-fluid bg_fix_pros_offer">
-            <div class="container about_pros_container">
+        <div class="container-fluid about_pros_container">
+            <div class="container">
                 <h1>Why our services?</h1>
                 <ul>
                     <li>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu</li>
@@ -137,90 +138,92 @@
                     <li>orem ipsum dolor sit amet, consectetur adipiscing elit, sed d</li>
                 </ul>
             </div>
+        </div>
     @stop
-    @section('recommendations')
-        <div class="container-fluid">
-            <a href="#" id="recommendation_list"><h1>CHANGE THIS DIV FOR RECOMMENDATIONS, ADD NAV</h1></a>
+    @section('ratings_link')
+        <div class='container-fluid ratings_link_container' id='ratings'>
+            <a href="/ratings" id="ratings_link"><h1>Click to check our ratings</h1></a>
         </div>
     @stop
     @section('offer')
-            <div class="container offer_heading_container" id="offer">
-                <h1>Our offer</h1>
-            </div>
-            <div class="container offer_thumbnails_container">
-                <div class="row">
-                    <div class="col-xs-6 col-md-3">
-                        <div class="thumbnail">
-                            <div class="caption">
-                                <h3>Thumbnail label</h3>
-                            </div>
-                            <img class="offer_thumbnail_pic" src="images/competence.png" alt="...">
+    <div class='container-fluid offer_container'>
+        <div class="container offer_heading_container" id="offer">
+            <h1>Our offer</h1>
+        </div>
+        <div class="container offer_thumbnails_container">
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Thumbnail label</h3>
                         </div>
-                    </div>
-                    <div class="col-xs-6 col-md-3">
-                        <div class="thumbnail">
-                            <div class="caption">
-                                <h3>Thumbnail label</h3>
-                            </div>
-                            <img class="offer_thumbnail_pic" src="images/competence.png" alt="...">
-                        </div>
-                    </div>
-                    <div class="col-xs-6 col-md-3">
-                        <div class="thumbnail">
-                            <div class="caption">
-                                <h3>Thumbnail label</h3>
-                            </div>
-                            <img class="offer_thumbnail_pic" src="images/competence.png" alt="...">
-                        </div>
-                    </div>
-                    <div class="col-xs-6 col-md-3">
-                        <div class="thumbnail">
-                            <div class="caption">
-                                <h3>Thumbnail label</h3>
-                            </div>
-                            <img class="offer_thumbnail_pic" src="images/competence.png" alt="...">
-                        </div>
+                        <img class="offer_thumbnail_pic" src="images/competence.png" alt="...">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-6 col-md-3">
-                        <div class="thumbnail">
-                            <div class="caption">
-                                <h3>Thumbnail label</h3>
-                            </div>
-                            <img class="offer_thumbnail_pic" src="images/competence.png" alt="...">
+                <div class="col-xs-6 col-md-3">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Thumbnail label</h3>
                         </div>
+                        <img class="offer_thumbnail_pic" src="images/competence.png" alt="...">
                     </div>
-                    <div class="col-xs-6 col-md-3">
-                        <div class="thumbnail">
-                            <div class="caption">
-                                <h3>Thumbnail label</h3>
-                            </div>
-                            <img class="offer_thumbnail_pic" src="images/competence.png" alt="...">
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Thumbnail label</h3>
                         </div>
+                        <img class="offer_thumbnail_pic" src="images/competence.png" alt="...">
                     </div>
-                    <div class="col-xs-6 col-md-3">
-                        <div class="thumbnail">
-                            <div class="caption">
-                                <h3>Thumbnail label</h3>
-                            </div>
-                            <img class="offer_thumbnail_pic" src="images/competence.png" alt="...">
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Thumbnail label</h3>
                         </div>
+                        <img class="offer_thumbnail_pic" src="images/competence.png" alt="...">
                     </div>
-                    <div class="col-xs-6 col-md-3">
-                        <div class="thumbnail">
-                            <div class="caption">
-                                <h3>Thumbnail label</h3>
-                            </div>
-                            <img class="offer_thumbnail_pic" src="images/competence.png" alt="...">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Thumbnail label</h3>
                         </div>
+                        <img class="offer_thumbnail_pic" src="images/competence.png" alt="...">
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Thumbnail label</h3>
+                        </div>
+                        <img class="offer_thumbnail_pic" src="images/competence.png" alt="...">
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Thumbnail label</h3>
+                        </div>
+                        <img class="offer_thumbnail_pic" src="images/competence.png" alt="...">
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Thumbnail label</h3>
+                        </div>
+                        <img class="offer_thumbnail_pic" src="images/competence.png" alt="...">
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     @stop
-    @section('gallery')
-    <div class="container-fluid gallery_link_container" id="gallery_link">
+    @section('gallery_link')
+    <div class="container-fluid gallery_link_container">
         <a href="/gallery" id="gallery_link"><h1>Click to enter the gallery</h1></a>
     </div>
     @stop

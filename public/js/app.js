@@ -36,6 +36,19 @@ $(document).ready(function() {
     $('#add_job_modal').on('shown.bs.modal', function () {
         $('#add_job_modal_input').focus()
     })
+    
+    //rating stars stuff
+    //  Check Radio-box
+    $(".rating input:radio").attr("checked", false);
+    $('.rating input').click(function () {
+        $(".rating span").removeClass('checked');
+        $(this).parent().addClass('checked');
+    });
+
+    $('input:radio').change(
+    function(){
+        var userRating = this.value;
+    }); 
 })
 
 

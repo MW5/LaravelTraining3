@@ -47,21 +47,26 @@
     <div class="container-fluid gallery_manager_container">
         <div class="container">
             <h1>Gallery manager</h1>
-            @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-            <button type="button" class="btn btn-primary btn-lg adm_btn_green" data-toggle="modal" data-target="#add_job_modal">Add job</button>
+            <div class="alert_box">
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                @if(Session::has('message'))
+                    <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+                @endif
+            </div>
+            <button type="button" class="btn btn-primary btn-lg btn_green" data-toggle="modal" data-target="#add_job_modal">Add job</button>
             @foreach($jobs as $job)
                 <div class="gallery_manager_job_container">
                     <div class="modal fade" tabindex="-1" role="dialog" id="add_pic_modal_{{$job->id}}">
                         <div class="modal-dialog" role="document">
-                            <div class="modal-content adm_modal">
+                            <div class="modal-content pg_modal">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span></button>
@@ -82,15 +87,15 @@
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default adm_btn_red" data-dismiss="modal">Close</button>
-                                    <button form="add_pic_form_{{$job->id}}" type="submit" class="btn btn-primary adm_btn_green">Add picture</button>
+                                    <button type="button" class="btn btn-default btn_red" data-dismiss="modal">Close</button>
+                                    <button form="add_pic_form_{{$job->id}}" type="submit" class="btn btn-primary btn_green">Add picture</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal fade" tabindex="-1" role="dialog" id="edit_heading_modal_{{$job->id}}">
                         <div class="modal-dialog" role="document">
-                            <div class="modal-content adm_modal">
+                            <div class="modal-content pg_modal">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span></button>
@@ -106,15 +111,15 @@
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default adm_btn_red" data-dismiss="modal">Close</button>
-                                    <button form="edit_heading_form_{{$job->id}}" type="submit" class="btn btn-primary adm_btn_green">Edit heading</button>
+                                    <button type="button" class="btn btn-default btn_red" data-dismiss="modal">Close</button>
+                                    <button form="edit_heading_form_{{$job->id}}" type="submit" class="btn btn-primary btn_green">Edit heading</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal fade" tabindex="-1" role="dialog" id="edit_description_modal_{{$job->id}}">
                         <div class="modal-dialog" role="document">
-                            <div class="modal-content adm_modal">
+                            <div class="modal-content pg_modal">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span></button>
@@ -130,8 +135,8 @@
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default adm_btn_red" data-dismiss="modal">Close</button>
-                                    <button form="edit_description_form_{{$job->id}}" type="submit" class="btn btn-primary adm_btn_green">Edit description</button>
+                                    <button type="button" class="btn btn-default btn_red" data-dismiss="modal">Close</button>
+                                    <button form="edit_description_form_{{$job->id}}" type="submit" class="btn btn-primary btn_green">Edit description</button>
                                 </div>
                             </div>
                         </div>
@@ -141,13 +146,13 @@
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <h2 class="adm_job_heading">{{$job->job_heading}}</h2>
                         <p class="adm_job_description">{{$job->job_description}}</p>
-                        <button type="button" class="btn btn-primary adm_btn_green" data-toggle="modal" data-target="#add_pic_modal_{{$job->id}}">Add picture</button>
-                        <button type="button" class="btn btn-primary adm_btn_green" data-toggle="modal" data-target="#edit_heading_modal_{{$job->id}}">Edit heading</button>
-                        <button type="button" class="btn btn-primary adm_btn_green" data-toggle="modal" data-target="#edit_description_modal_{{$job->id}}">Edit description</button>
+                        <button type="button" class="btn btn-primary btn_green" data-toggle="modal" data-target="#add_pic_modal_{{$job->id}}">Add picture</button>
+                        <button type="button" class="btn btn-primary btn_green" data-toggle="modal" data-target="#edit_heading_modal_{{$job->id}}">Edit heading</button>
+                        <button type="button" class="btn btn-primary btn_green" data-toggle="modal" data-target="#edit_description_modal_{{$job->id}}">Edit description</button>
 
                         <span class="pull-right">
-                            <button form="remove_job_form_{{$job->id}}" type="submit" class="btn btn-primary adm_btn_red">Remove this job</button>
-                            <button form="remove_pics_form_{{$job->id}}" type="submit" class="btn btn-primary adm_btn_red">Remove selected pictures</button>
+                            <button form="remove_job_form_{{$job->id}}" type="submit" class="btn btn-primary btn_red">Remove this job</button>
+                            <button form="remove_pics_form_{{$job->id}}" type="submit" class="btn btn-primary btn_red">Remove selected pictures</button>
                         </span>
                     </form>
                     <ol>
@@ -171,7 +176,7 @@
     
     <div class="modal fade" tabindex="-1" role="dialog" id="add_job_modal">
         <div class="modal-dialog" role="document">
-            <div class="modal-content adm_modal">
+            <div class="modal-content pg_modal">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
@@ -198,8 +203,8 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default adm_btn_red" data-dismiss="modal">Close</button>
-                    <button form="add_job_form" type="submit" class="btn btn-primary adm_btn_green">Add job</button>
+                    <button type="button" class="btn btn-default btn_red" data-dismiss="modal">Close</button>
+                    <button form="add_job_form" type="submit" class="btn btn-primary btn_green">Add job</button>
                 </div>
             </div>
         </div>

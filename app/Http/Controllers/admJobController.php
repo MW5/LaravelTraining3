@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Job;
 use File;
+use Session;
 
 class admJobController extends Controller
 {
@@ -31,6 +32,8 @@ class admJobController extends Controller
         $job->job_heading = $request->job_heading;
         $job->job_description= $request->job_description;
         $job->save();
+        Session::flash('message', 'The job has been successfully added!'); 
+        Session::flash('alert-class', 'alert-success'); 
         return back();
     }
     
@@ -43,7 +46,8 @@ class admJobController extends Controller
         File::delete($job->thumbnail_src);
         File::deleteDirectory("images/Uploaded/Job_$job->id");
         $job->delete();
-        
+        Session::flash('message', 'The job and all of its pictures have been successfully removed!'); 
+        Session::flash('alert-class', 'alert-success'); 
         return back();
     }
     
@@ -52,6 +56,8 @@ class admJobController extends Controller
             'job_heading'=>'required|min:2|max:50',
         ]);
         $job->update($request->all());
+        Session::flash('message', 'The heading has been successfully changed!'); 
+        Session::flash('alert-class', 'alert-success'); 
         return back();
     }
     
@@ -60,6 +66,8 @@ class admJobController extends Controller
             'job_description'=>'required|min:2|max:300',
         ]);
         $job->update($request->all());
+        Session::flash('message', 'The description has been successfully changed!'); 
+        Session::flash('alert-class', 'alert-success'); 
         return back();
     }
 }

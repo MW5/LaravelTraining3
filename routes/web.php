@@ -15,6 +15,8 @@ Route::get('/', 'pageController@home');
 Route::get('/home', 'pageController@home');
 Route::get('/gallery', 'galleryController@listJobs');
 Route::get('/jobs/{job}', 'galleryController@showJob');
+Route::get('/ratings', 'ratingsController@listRatings');
+Route::post('/ratings/addRating', 'ratingsController@addRating');
 
 Auth::routes();
 Route::get('/admpanel', 'admController@showPanel');

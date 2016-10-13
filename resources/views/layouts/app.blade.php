@@ -22,14 +22,15 @@
         @yield('credo')
         @yield('about_introduction')
         @yield('about_pros')
-        @yield('recommendations')
+        @yield('ratings_link')
+        @yield('ratings')
         @yield('offer')
-        @yield('gallery')
+        @yield('gallery_link')
+        @yield('jobs_gallery')
+        @yield('job_pics')
         @yield('address')
         @yield('map')
         @yield('contact')
-        @yield('jobs_gallery')
-        @yield('job_pics')
         <h1>ADD FOOTER!</h1>
     </body>
 </html>

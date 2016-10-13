@@ -8,6 +8,7 @@ use App\Http\Requests;
 use DB;
 use App\JobPic;
 use File;
+use Session;
 
 class admJobPicController extends Controller
 {
@@ -27,8 +28,9 @@ class admJobPicController extends Controller
         $jobPic = new JobPic();
         $jobPic->pic_src = $destinationPath.$name;
         $jobPic->job_id = $request->job_id;
-
         $jobPic->save();
+        Session::flash('message', 'The picture has been successfully added'); 
+        Session::flash('alert-class', 'alert-success');
         return back();
     }
     function removePics(Request $request) {
@@ -39,6 +41,8 @@ class admJobPicController extends Controller
                 $jobPic->delete();
             }
         }
+        Session::flash('message', 'The picture/pictures have been successfully removed!'); 
+        Session::flash('alert-class', 'alert-success'); 
         return back();
     }
 }
