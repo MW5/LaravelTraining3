@@ -37,22 +37,38 @@
     <div class='container-fluid ratings_container'>
         <div class='container'>
             <button type="button" class="btn btn-primary btn-lg btn_green" data-toggle="modal" data-target="#add_rating_modal">Add rating</button>
-            <div class="alert_box">
-                @if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
+            @if (count($errors) > 0 || Session::has('message'))
+                <div class="alert_box">
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    @if(Session::has('message'))
+                        <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+                    @endif
+                </div>
+            @endif
+            @foreach($ratings as $rating)
+                <div class="row rating_container">
+                    <div class="col-xs-6 col-md-2">
+                        <p>Rating by: {{$rating->name}}</p>
                     </div>
-                @endif
-                @if(Session::has('message'))
-                    <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
-                @endif
-            </div>
-            ADD RATING FORM HERE AND THEN LIST OF RATINGS // WORKFLOW: MAKE MIGRATION->FORM->ADD RATING FUNCTION IN CONTROLLER->
-            ->ADD DB QUERY FOR LISTING->EDIT VIEW TO LIST PROPERLY
+                    <div class="col-xs-6 col-md-4">
+                        <p>{{$rating->rating}}</p>
+                    </div>
+                    <div class="col-xs-6 col-md-6">
+                        <p>{{$rating->rating_text}}</p>
+                    </div>
+                </div>
+            @endforeach
+            
+            ADD RATING FORM HERE AND THEN LIST OF RATINGS // WORKFLOW: EDIT VIEW TO LIST PROPERLY->CHECK FOR VERIFIED->
+            ->ADM FUNCTIONS FOR RATINGS (DELETE, CONFIRM)
             DISPLAY NO RATINGS YET IF THERE ARE NO RATINGS
             REMEMBER TO ADD RATING VERIFIED FIELD TO MIGRATION
         </div>

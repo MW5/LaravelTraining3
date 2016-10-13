@@ -49,6 +49,12 @@ $(document).ready(function() {
     function(){
         var userRating = this.value;
     }); 
+    
+    //alert box
+    setTimeout(
+        function(){
+            $(".alert_box").fadeOut();
+        }, 3000);
 })
 
 

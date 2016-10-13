@@ -50,10 +50,15 @@ body {
     background: none;
 }
 
-/*error box*/
-.error_box {
-    padding-top:20px;
-    padding-bottom: 20px;
+/*alert box*/
+.alert_box {
+    text-align: center;
+    width: 50vw;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    margin-left: -25vw;
+    z-index: 1000;
 }
 
 /*home carousel*/
@@ -229,6 +234,10 @@ body {
 }
 .ratings_container button {
     margin-left: 15vw;
+}
+/*one rating*/
+.rating_container {
+    text-align: center;
 }
 /*rating stars*/
 .rating {
@@ -427,27 +436,31 @@ body {
 }
 
 /*adm panel*/
-.gallery_manager_container h1{
+.gallery_container {
+    border-bottom: 1px solid rgb(255,120,5);
+}
+.adm_panel_container h1{
     text-align: center;
 }
-.gallery_manager_container h2{
+.adm_panel_container h2{
     text-align: center;
     margin-top: 10px;
 }
-.gallery_manager_container {
+.adm_panel_container {
     background: linear-gradient(black, #4f4e4e);
     min-height: 100vh;
     padding-top: 120px;
     color: rgb(255,120,5);
+
 }
-.gallery_manager_container .container {
+.adm_panel_container .container {
     width: 50vw;
 }
 
 /*.gallery_manager_job_container {
     FOR POSSIBLE FUTURE USE
 }*/
-.gallery_manager_container li {
+.adm_panel_container li {
     padding-top: 5px;
     padding-bottom: 5px;
     margin-top: 5px;
@@ -469,7 +482,7 @@ body {
     padding-left: 20px;
     padding-right: 20px;
 }
-.gallery_manager_container input[type="checkbox"]{
+.adm_panel_container input[type="checkbox"]{
     width: 20px;
     height: 20px;
     vertical-align: middle;

@@ -5,15 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use DB;
 use App\Rating;
 use Session;
 
 class ratingsController extends Controller
 {
     public function listRatings() {
-        //db query here
-        //return View('ratings.ratings', compact('ratings')
-        return View('ratings.ratings');
+        $ratings = DB::table('ratings')->get();
+        return View('ratings.ratings', compact('ratings'));
     }
     public function addRating(Request $request) {
         $this->validate($request,[

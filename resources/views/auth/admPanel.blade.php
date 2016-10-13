@@ -44,23 +44,25 @@
       </nav>
     @endsection
     @section('adm_panel')
-    <div class="container-fluid gallery_manager_container">
-        <div class="container">
+    <div class="container-fluid adm_panel_container">
+        @if (count($errors) > 0 || Session::has('message'))
+                <div class="alert_box">
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    @if(Session::has('message'))
+                        <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+                    @endif
+                </div>
+            @endif
+        <div class="container gallery_container">
             <h1>Gallery manager</h1>
-            <div class="alert_box">
-                @if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                @if(Session::has('message'))
-                    <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
-                @endif
-            </div>
             <button type="button" class="btn btn-primary btn-lg btn_green" data-toggle="modal" data-target="#add_job_modal">Add job</button>
             @foreach($jobs as $job)
                 <div class="gallery_manager_job_container">
@@ -209,6 +211,7 @@
             </div>
         </div>
     </div>
+    
     
     @stop
 </html>

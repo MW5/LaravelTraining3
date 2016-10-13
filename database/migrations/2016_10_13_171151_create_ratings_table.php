@@ -18,6 +18,7 @@ class CreateRatingsTable extends Migration
             $table->string('name');
             $table->integer('rating');
             $table->string('rating_text');
+            $table->boolean('verified')->default(false);
             $table->timestamps();
         });
     }
