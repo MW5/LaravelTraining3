@@ -11,6 +11,8 @@
         <script src="{{ URL::asset('js/jquery-3.1.1.js')}}"></script>
         <script src="{{ URL::asset('js/bootstrap.min.js')}}"></script>
         <script src="{{ URL::asset('js/app.js')}}"></script>
+        <script src="{{ URL::asset('js/cookies_script.js')}}"></script>
+
     </head>
     <body>
         @yield('nav')
@@ -31,6 +33,17 @@
         @yield('address')
         @yield('map')
         @yield('contact')
-        <h1>ADD FOOTER!</h1>
+        @yield('privacy_policy')
+        <footer class='footer_container'>
+                <div class='author'>Designed and developed by MW5</div>
+                <a class="privacy_policy_link" href="privacyPolicy">Privacy policy</a>
+        </footer>
     </body>
+    <script type='text/javascript'>
+        $(document).ready(function() {
+            $.cookiesDirective({
+                privacyPolicyUri: 'privacyPolicy'
+            });
+        });
+    </script>
 </html>

@@ -16,6 +16,9 @@ Auth::routes();
 Route::get('/', 'pageController@home');
 Route::get('/home', 'pageController@home');
 
+//privacy policy
+Route::get('/privacyPolicy', 'pageController@privacyPolicy');
+
 //gallery
 Route::get('/gallery', 'galleryController@listJobs');
 Route::get('/jobs/{job}', 'galleryController@showJob');
