@@ -488,7 +488,9 @@ body {
     margin-top: 10px;
 }
 .adm_panel_container {
-    background: linear-gradient(black, #4f4e4e);
+/*    background: linear-gradient(black, #4f4e4e);*/
+    background-image: url('/images/pattern_bg_vert_mirr.png');
+    background-repeat: repeat-y;
     min-height: 100vh;
     padding-top: 120px;
     color: rgb(255,120,5);
@@ -504,8 +506,9 @@ body {
     margin-top: 5px;
 }
 .adm_job_thumbnail {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 10px;
+/*    padding-left: 10px;
+    padding-right: 10px;*/
     height: 100px;
 }
 .adm_heading {
@@ -516,26 +519,39 @@ body {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
+.adm_content_container {
+    background-color: rgba(255,120,5, 0.1);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
 .adm_job_description {
     padding-left: 20px;
     padding-right: 20px;
 }
-.verified_heading {
-    background-color: green;
+.adm_verified {
+    background-color: rgba(0,128,0,0.2);
 }
-.not_verified_heading {
-    background-color: red;
+.adm_not_verified {
+    background-color: rgba(128,0,0,0.2);
+}
+.adm_verified_heading {
+    background-color: rgba(0,128,0,1);
+}
+.adm_not_verified_heading {
+    background-color: rgba(128,0,0,1);
 }
 .ratings_manager_rating_container button {
     margin-bottom: 10px;
 }
+.ratings_manager_rating_container p {
+    margin: 0;
+    padding: 5px 20px 5px 20px;
+}
 .adm_rating_verified {
-    color: white;
-    background-color: green;
+    color: green;
 }
 .adm_rating_not_verified {
-    color: white;
-    background-color: red;
+    color: red;
 }
 .adm_panel_container input[type="checkbox"]{
     width: 20px;

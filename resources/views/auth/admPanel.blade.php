@@ -19,7 +19,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#top">
+            <a class="navbar-brand" href="#gallery_manager">
                 <div id="logo-background-rotated">
                     <img id='nav_logo_pic' alt="Brand" src="images/PGElectric_logo.png">
                 </div>
@@ -69,7 +69,7 @@
             <h1 id="gallery_manager">Gallery manager</h1>
             <button type="button" class="btn btn-primary btn-lg btn_green" data-toggle="modal" data-target="#add_job_modal">Add job</button>
             @foreach($jobs as $job)
-                <div class="gallery_manager_job_container">
+                <div class="adm_content_container">
                     <div class="modal fade" tabindex="-1" role="dialog" id="add_pic_modal_{{$job->id}}">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content pg_modal">
@@ -147,7 +147,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <form id="remove_job_form_{{$job->id}}" method="POST" action="/admpanel/removeJob/{{$job->id}}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <h2 class="adm_heading">{{$job->job_heading}}</h2>
@@ -181,19 +181,24 @@
         <div class="container adm_function_container">
             <h1 id="ratings_manager">Ratings manager</h1>
                 @foreach($ratings as $rating)
-                    <form id="remove_rating_form_{{$rating->id}}" method="POST" action="/admpanel/removeRating/{{$rating->id}}">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    </form>
-                    <form id="verify_rating_form_{{$rating->id}}" method="POST" action="/admpanel/verifyRating/{{$rating->id}}">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    </form>
-                    <div class="ratings_manager_rating_container">
-                    @if(!$rating->verified)
-                            <h2 class="adm_heading not_verified_heading">{{$rating->name}}</h2>
-                            <button form="verify_rating_form_{{$rating->id}}" type="submit" class="btn btn-primary btn_green">Approve rating</button>
-                    @else 
-                            <h2 class="adm_heading verified_heading">{{$rating->name}}</h2>
+                    @if($rating->verified)
+                        <div class="adm_content_container adm_verified ratings_manager_rating_container">
+                    @else
+                        <div class="adm_content_container adm_not_verified ratings_manager_rating_container">
                     @endif
+                            <form id="verify_rating_form_{{$rating->id}}" method="POST" action="/admpanel/verifyRating/{{$rating->id}}">
+                                {{method_field('PATCH')}}
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            </form>
+                            <form id="remove_rating_form_{{$rating->id}}" method="POST" action="/admpanel/removeRating/{{$rating->id}}">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            </form>
+                            @if(!$rating->verified)
+                                <h2 class="adm_heading adm_not_verified_heading">{{$rating->name}}</h2>
+                                <button form="verify_rating_form_{{$rating->id}}" type="submit" class="btn btn-primary btn_green">Approve rating</button>
+                            @else 
+                                <h2 class="adm_heading adm_verified_heading">{{$rating->name}}</h2>
+                            @endif
                             <button form="remove_rating_form_{{$rating->id}}" type="submit" class="btn btn-primary btn_red pull-right">Remove rating</button>
                             <p>Rating author: {{$rating->name}}</p>
                             <p>Rating: {{$rating->rating}}/5</p>
@@ -251,7 +256,5 @@
             </div>
         </div>
     </div>
-    
-    
     @stop
 </html>

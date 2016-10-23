@@ -9,7 +9,7 @@ use DB;
 use App\Rating;
 use Session;
 
-class ratingsController extends Controller
+class ratingController extends Controller
 {
     public function listRatings() {
         $ratings = DB::table('ratings')->get();
