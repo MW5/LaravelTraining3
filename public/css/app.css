@@ -55,10 +55,11 @@ body {
     text-align: center;
     width: 50vw;
     position: fixed;
-    top: 50vh;
-    left: 50vw;
+    top: 40px;
+    left: 65vw;
     margin-left: -25vw;
-    z-index: 1000;
+    z-index: 10000;
+    opacity: 0.9;
 }
 
 /*home carousel*/
@@ -187,7 +188,7 @@ body {
     opacity: 0.9;
     border: 1px solid #ddd;
     border-radius: 4px;
-    vertical-align: middle;
+    line-height: 40px;
 }
 .about_pros_container h1 {
     color: rgb(255,120,5);
@@ -225,21 +226,33 @@ body {
     background-color: rgb(255,120,5);
 }
 /*ratings*/
+#no_ratings {
+    display: block;
+    position: relative;
+    top: 30vh;
+    text-align: center;
+    font-size: 50px;
+    color: rgb(255,120,5);
+}
 .ratings_container {
     min-height: 100vh;
     padding-top: 200px;
     background-image: url('/images/pattern_bg_vert_mirr.png');
     background-repeat: repeat-y;
-    color: rgb(255,120,5);
+    color: black;
 }
 .ratings_container button {
-    margin-left: 15vw;
+    margin-left: 18vw;
 }
 /*one rating*/
 .rating_container {
+    margin-top: 10px;
+    background-color: #DDDFDF;
+    opacity: 0.9;
     text-align: center;
+    border-radius: 4px;
 }
-/*rating stars*/
+/*rating stars modal*/
 .rating {
     width:300px;
 }
@@ -250,6 +263,7 @@ body {
     opacity:0;
 }
 .rating span label {
+    cursor: pointer;
     display:inline-block;
     width:30px;
     height:30px;
@@ -268,6 +282,32 @@ body {
 .rating span.checked ~ span label {
     background:rgb(255,120,5);
     color:black;
+}
+
+/*bootstrap col valign fix*/
+.v_center {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+    margin-right:-4px;
+}
+/*rating author name*/
+.rating_author {
+    font-size: 30px;
+    text-align: center;
+}
+/*rating stars*/
+.rating_star {
+    color: rgb(255,120,5);
+    line-height: 100px;
+    vertical-align: middle;
+    font-size: 50px;
+}
+/*rating text*/
+.rating_text {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: left;
 }
 
 /*offer*/
@@ -436,7 +476,8 @@ body {
 }
 
 /*adm panel*/
-.gallery_container {
+.adm_function_container {
+    padding-bottom: 5px;
     border-bottom: 1px solid rgb(255,120,5);
 }
 .adm_panel_container h1{
@@ -457,9 +498,6 @@ body {
     width: 50vw;
 }
 
-/*.gallery_manager_job_container {
-    FOR POSSIBLE FUTURE USE
-}*/
 .adm_panel_container li {
     padding-top: 5px;
     padding-bottom: 5px;
@@ -470,7 +508,7 @@ body {
     padding-right: 10px;
     height: 100px;
 }
-.adm_job_heading {
+.adm_heading {
     display: block;
     color: white;
     background-color: rgba(255,120,5, 0.9);
@@ -481,6 +519,23 @@ body {
 .adm_job_description {
     padding-left: 20px;
     padding-right: 20px;
+}
+.verified_heading {
+    background-color: green;
+}
+.not_verified_heading {
+    background-color: red;
+}
+.ratings_manager_rating_container button {
+    margin-bottom: 10px;
+}
+.adm_rating_verified {
+    color: white;
+    background-color: green;
+}
+.adm_rating_not_verified {
+    color: white;
+    background-color: red;
 }
 .adm_panel_container input[type="checkbox"]{
     width: 20px;

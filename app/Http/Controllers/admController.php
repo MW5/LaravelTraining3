@@ -17,7 +17,7 @@ class admController extends Controller
     public function showPanel() {
         $jobs = DB::table('jobs')->get();
         $job_pics = DB::table('job_pics')->get();
-        //$recommendations here as well
-        return view('auth.admPanel', compact('jobs','job_pics'));
+        $ratings = DB::table('ratings')->get();
+        return view('auth.admPanel', compact('jobs','job_pics','ratings'));
     }
 }

@@ -28,7 +28,11 @@
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="nav_links">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav pull-left">
+                <li><a href="#gallery_manager">Gallery manager</a></li>
+                <li><a href="#ratings_manager">Ratings manager</a></li>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
                 <li><a href="{{ url('/logout') }}"
                         onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">
@@ -61,8 +65,8 @@
                     @endif
                 </div>
             @endif
-        <div class="container gallery_container">
-            <h1>Gallery manager</h1>
+        <div class="container adm_function_container">
+            <h1 id="gallery_manager">Gallery manager</h1>
             <button type="button" class="btn btn-primary btn-lg btn_green" data-toggle="modal" data-target="#add_job_modal">Add job</button>
             @foreach($jobs as $job)
                 <div class="gallery_manager_job_container">
@@ -146,7 +150,7 @@
                     
                     <form id="remove_job_form_{{$job->id}}" method="POST" action="/admpanel/removeJob/{{$job->id}}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <h2 class="adm_job_heading">{{$job->job_heading}}</h2>
+                        <h2 class="adm_heading">{{$job->job_heading}}</h2>
                         <p class="adm_job_description">{{$job->job_description}}</p>
                         <button type="button" class="btn btn-primary btn_green" data-toggle="modal" data-target="#add_pic_modal_{{$job->id}}">Add picture</button>
                         <button type="button" class="btn btn-primary btn_green" data-toggle="modal" data-target="#edit_heading_modal_{{$job->id}}">Edit heading</button>
@@ -174,7 +178,40 @@
                 </div>    
             @endforeach 
         </div>
+        <div class="container adm_function_container">
+            <h1 id="ratings_manager">Ratings manager</h1>
+                @foreach($ratings as $rating)
+                    <form id="remove_rating_form_{{$rating->id}}" method="POST" action="/admpanel/removeRating/{{$rating->id}}">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    </form>
+                    <form id="verify_rating_form_{{$rating->id}}" method="POST" action="/admpanel/verifyRating/{{$rating->id}}">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    </form>
+                    <div class="ratings_manager_rating_container">
+                    @if(!$rating->verified)
+                            <h2 class="adm_heading not_verified_heading">{{$rating->name}}</h2>
+                            <button form="verify_rating_form_{{$rating->id}}" type="submit" class="btn btn-primary btn_green">Approve rating</button>
+                    @else 
+                            <h2 class="adm_heading verified_heading">{{$rating->name}}</h2>
+                    @endif
+                            <button form="remove_rating_form_{{$rating->id}}" type="submit" class="btn btn-primary btn_red pull-right">Remove rating</button>
+                            <p>Rating author: {{$rating->name}}</p>
+                            <p>Rating: {{$rating->rating}}/5</p>
+                            <p>Rating text: {{$rating->rating_text}}</p>
+                            @if($rating->verified)
+                                <p class="adm_rating_verified">Rating verified</p>
+                            @else
+                                <p class="adm_rating_not_verified">Rating not verified</p>
+                            @endif
+                    </div>
+                @endforeach
+            </form>
+        </div>
     </div>
+    
+    
+    
+    
     
     <div class="modal fade" tabindex="-1" role="dialog" id="add_job_modal">
         <div class="modal-dialog" role="document">
@@ -189,17 +226,20 @@
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         
                         <div class="form-group">
+                            <label for="job_thumbnail_pic">Job thumbnail picture:</label>
                             IMPORTANT! PICS MUST BE 2700 WIDE 1500 HIGH (2700x1500)
-                            <input type="file" class="form-control" name="job_thumbnail_pic"">
+                            <input id="job_thumbnail_pic" type="file" class="form-control" name="job_thumbnail_pic">
                         </div>
                         
                         <div class="form-group">
-                            <input type="text" class="form-control" name="job_heading"
+                            <label for="job_heading">Job heading:</label>
+                            <input id="job_heading" type="text" class="form-control" name="job_heading"
                                    placeholder='2-50 characters'>{{old('job_heading')}}</input>
                         </div>
                         
                         <div class="form-group">
-                            <textarea class="form-control" name="job_description"
+                            <label for="job_description">Job description:</label>
+                            <textarea id ="job_description" class="form-control" name="job_description"
                                       placeholder='2-300 characters'>{{old('job_description')}}</textarea>
                         </div>
                     </form>

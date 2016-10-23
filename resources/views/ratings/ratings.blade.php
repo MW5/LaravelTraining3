@@ -53,24 +53,31 @@
                     @endif
                 </div>
             @endif
-            @foreach($ratings as $rating)
-                <div class="row rating_container">
-                    <div class="col-xs-6 col-md-2">
-                        <p>Rating by: {{$rating->name}}</p>
-                    </div>
-                    <div class="col-xs-6 col-md-4">
-                        <p>{{$rating->rating}}</p>
-                    </div>
-                    <div class="col-xs-6 col-md-6">
-                        <p>{{$rating->rating_text}}</p>
-                    </div>
-                </div>
-            @endforeach
-            
-            ADD RATING FORM HERE AND THEN LIST OF RATINGS // WORKFLOW: EDIT VIEW TO LIST PROPERLY->CHECK FOR VERIFIED->
-            ->ADM FUNCTIONS FOR RATINGS (DELETE, CONFIRM)
-            DISPLAY NO RATINGS YET IF THERE ARE NO RATINGS
-            REMEMBER TO ADD RATING VERIFIED FIELD TO MIGRATION
+            @if(count($ratings) == 0)
+                    <div id="no_ratings">There are no ratings yet</div>
+            @else
+                @foreach($ratings as $rating)
+                        @if($rating->verified)
+                            <div class="row rating_container">
+                                <div class="col-xs-6 col-md-4 v_center">
+                                    <div class="rating_author">{{$rating->name}}</div>
+                                </div>
+                                <div class="col-xs-6 col-md-4 v_center">
+                                    @for($i=0; $i<5; $i++) 
+                                        @if($i<$rating->rating)
+                                            <span class="rating_star">★</span>
+                                        @else
+                                            <span class="rating_star">☆</span>
+                                        @endif
+                                    @endfor
+                                </div>
+                                <div class="col-xs-6 col-md-4 v_center">
+                                    <div class="rating_text">{{$rating->rating_text}}</div>
+                                </div>
+                            </div>
+                        @endif
+                @endforeach
+            @endif    
         </div>
     </div>
     <div class="modal fade" tabindex="-1" role="dialog" id="add_rating_modal">
@@ -86,7 +93,7 @@
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group">
                             <label for="rating_name">Your name:</label>
-                            <input id="rating_name" type="text" class="form-control" name="rating_name">{{old('rating_name')}}</input>
+                            <input id="rating_name" type="text" class="form-control" name="rating_name" placeholder="2-30 characters">{{old('rating_name')}}</input>
                         </div>
                         <div class="form-group">
                             <label for="rating_grade">Grade our services:</label>
@@ -100,7 +107,7 @@
                         </div>
                         <div class="form-group">
                             <label for="rating_text">Describe our services:</label>
-                            <textarea id="rating_text" class="form-control" name="rating_text">{{old('rating_text')}}</textarea>
+                            <textarea id="rating_text" class="form-control" name="rating_text" placeholder="2-400 characters">{{old('rating_text')}}</textarea>
                         </div>
                     </form>
                 </div>
