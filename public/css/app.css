@@ -53,13 +53,12 @@ body {
 /*alert box*/
 .alert_box {
     text-align: center;
-    width: 50vw;
+    width: 70vw;
     position: fixed;
-    top: 40px;
-    left: 65vw;
-    margin-left: -25vw;
+    top: 40vh;
+    left: 50vw;
+    margin-left: -35vw;
     z-index: 10000;
-    opacity: 0.9;
 }
 
 /*home carousel*/

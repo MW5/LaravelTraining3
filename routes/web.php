@@ -15,6 +15,7 @@ Auth::routes();
 //home
 Route::get('/', 'pageController@home');
 Route::get('/home', 'pageController@home');
+Route::post('/contactForm', 'pageController@contactForm');
 
 //privacy policy
 Route::get('/privacyPolicy', 'pageController@privacyPolicy');

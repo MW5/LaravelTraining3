@@ -268,34 +268,34 @@
         <div class="container-fluid contact_container">
             <div class="container">
                 <h2>Contact us</h2>
-                <form class="form">
+                <form class="form" method="POST" action="/contactForm">
+                    {{ csrf_field() }}
                     <div class="row">
-<!--                    <span class="contact_inline_form">-->
                         <div class="col-xs-3 col-md-4">
                             <div class="form-group">
                                 <label for="contact_name">Name</label>
-                                <input type="text" class="form-control contact_input" id="contact_name"
+                                <input type="text" class="form-control contact_input" id="contact_name" name="name"
                                        placeholder="Jane Doe" required>
                             </div>
                         </div>
                         <div class="col-xs-3 col-md-4">
                             <div class="form-group">
                                 <label for="contact_email">Email</label>
-                                <input type="email" class="form-control" id="contact_email"
+                                <input type="email" class="form-control" id="contact_email" name="email"
                                        placeholder="jane.doe@example.com">
                             </div>
                         </div>
                         <div class="col-xs-3 col-md-4">
                             <div class="form-group">
                                 <label for="contact_phone">Phone number</label>
-                                <input type="tel" class="form-control" id="contact_phone"
-                                       placeholder="number" required>
+                                <input type="tel" class="form-control" id="contact_phone" name="phone"
+                                       placeholder="number">
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="contact_message">Message</label>
-                        <textarea class="form-control" id="contact_message" rows="3"
+                        <textarea class="form-control" id="contact_message" rows="3" name="msg"
                                   placeholder="Please enter the text of your message" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-default">Send</button>

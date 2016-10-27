@@ -37,22 +37,6 @@
     <div class='container-fluid ratings_container'>
         <div class='container'>
             <button type="button" class="btn btn-primary btn-lg btn_green" data-toggle="modal" data-target="#add_rating_modal">Add rating</button>
-            @if (count($errors) > 0 || Session::has('message'))
-                <div class="alert_box">
-                    @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    @if(Session::has('message'))
-                        <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
-                    @endif
-                </div>
-            @endif
             @if(count($ratings) == 0)
                     <div id="no_ratings">There are no ratings yet</div>
             @else
