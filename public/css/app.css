@@ -139,10 +139,16 @@ body {
     background-color: #DDDFDF;
     opacity: 0.9;
 }
-.thumbnail .caption {
-    height: 100px;
+.offer_thumbnail {
+    min-height: 275px;
 }
-.thumbnail h3 {
+.offer_thumbnail .caption {
+    min-height: 100px;
+}
+.about_thumbnail {
+    min-height: 470px;
+}
+.thumbnail h2, h3 {
     color: rgb(255,120,5);
     
 }
@@ -167,6 +173,7 @@ body {
     margin-right: 5%;
     padding-left: 5%;
     padding-right: 5%;
+    padding-bottom: 10px;
     width: 60%;
     text-align: center;
     font-size: 20px;
@@ -176,7 +183,7 @@ body {
     border-radius: 4px;
     vertical-align: middle;
 }
-.about_introduction_text_container h2{
+.about_introduction_text_container h1{
     color: rgb(255,120,5);
 }
 
@@ -644,6 +651,13 @@ body {
         height: 100%;
         transform: rotate(0deg);
     }
+    #nav_links ul li{
+        display: inline-block;
+        float: none;
+    }
+    #nav_links ul li a {
+        font-size: 25px;
+    }
     #logo-background-rotated:hover {
         border: none;
     }
@@ -652,6 +666,9 @@ body {
         display:block;
     }
     #carousel {
+        display: none;
+    }
+    .contact_container {
         display: none;
     }
 }
