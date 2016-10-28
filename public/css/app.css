@@ -63,11 +63,13 @@ body {
 
 /*home carousel*/
 .carousel-caption {
-    font-size: 50px;
+    font-size: 70px;
     color: rgb(255,120,5);
     opacity: 0.8;
 }
-
+.carousel-inner > .item {
+    transition: 2s ease-in-out left;
+}
 #carousel_caption_0{
     position: absolute;
     top: 30%;
@@ -137,8 +139,12 @@ body {
     background-color: #DDDFDF;
     opacity: 0.9;
 }
+.thumbnail .caption {
+    height: 100px;
+}
 .thumbnail h3 {
     color: rgb(255,120,5);
+    
 }
 
 /*about introduction*/
@@ -489,7 +495,6 @@ body {
     margin-top: 10px;
 }
 .adm_panel_container {
-/*    background: linear-gradient(black, #4f4e4e);*/
     background-image: url('/images/pattern_bg_vert_mirr.png');
     background-repeat: repeat-y;
     min-height: 100vh;
@@ -620,6 +625,11 @@ body {
 
 /*media*/
 @media screen and (max-width: 840px) {
+    #carousel_caption_0, #carousel_caption_1, #carousel_caption_2 { 
+        top: 50%;
+        right: -15%;
+        left: -15%;
+    }
     .bg_fix_pros_offer {
         background: linear-gradient(#4f4e4e,#1f1b20);
     }
@@ -647,6 +657,12 @@ body {
 }
 
 @media screen and (max-width: 1170px) {
+    #carousel_caption_0, #carousel_caption_1, #carousel_caption_2 { 
+        top: 50%;
+        right: -15%;
+        left: -15%;
+    }
+    
     .bg_fix_pros_offer {
         background: linear-gradient(#4f4e4e,#1f1b20);
     }
