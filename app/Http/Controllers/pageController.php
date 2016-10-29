@@ -26,8 +26,8 @@ class pageController extends Controller
         Mail::send('emails.contactFormMail',
                 ['name'=>$request->name, 'email'=>$request->email, 'phone'=>$request->phone, 'msg'=>$request->msg],
                 function ($message) {
-                    $message->from('pgelectric@pgelectric.uk', 'PGelectric Contact Form');
-                    $message->to('test@test.com');
+                    $message->from('info@pgelectric.uk', 'PGelectric Contact Form');
+                    $message->to('info@pgelectric.uk');
                 }
             );
         Session::flash('message', 'We will contact you soon!'); 
