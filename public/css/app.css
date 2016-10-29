@@ -700,4 +700,11 @@ body {
     .about_thumbnail .caption h2 {
         font-size: 20px;
     }
+    .offer_thumbnail .caption  {
+/*        min-height: 8px;*/
+    }
+    .offer_thumbnail .caption h3 {
+        font-size: 17px;
+    }
+    
 }
