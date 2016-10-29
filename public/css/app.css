@@ -695,3 +695,9 @@ body {
         display:none;
     }
 }
+
+@media screen and (max-width: 470px) {
+    .about_thumbnail .caption h2 {
+        font-size: 20px;
+    }
+}
