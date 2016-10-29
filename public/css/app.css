@@ -394,10 +394,11 @@ body {
 /*gallery_carousel*/
 .job_pics_container {
     padding-top: 130px;
+    padding-bottom: 20px;
     background-image: url('/images/pattern_bg_vert_mirr.png');
     background-repeat: repeat-y;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
 }
 #no_photos {
     display: block;
