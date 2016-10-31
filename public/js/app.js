@@ -1,15 +1,43 @@
 $(document).ready(function() {
 
+    //carousel
     $('#carousel').carousel({
       pause: false,
       interval: 4000
     })
     
+    //scrollspy
     $('body').scrollspy({
         offset: 250,
         target: '#nav_links' 
     })
     
+    //rotate logo background when not on top of the page
+        $(document).scroll(function() {
+            if($("body").scrollTop() != 0) {
+                $("#logo_background_rotated").css({
+                    "border" : "none",
+                    "background" : "none",
+                    "transform": "rotate(0deg)",
+                    "margin-left" : "50px"
+                });
+                $("#nav_logo_pic").css({
+                    "height" : "120px",
+                    "transform": "rotate(0deg)",
+                });
+            } else{
+                $("#logo_background_rotated").css({
+                    "background-color": "#DDDFDF",
+                    "transform": "rotate(45deg)",
+                    "border": "2px solid black",
+                    "margin-left" : "-50px"
+                });
+                $("#nav_logo_pic").css({
+                    "height" : "200px",
+                    "transform" : "rotate(-45deg)"
+                });
+            }
+        });
     //nav click
     $("a").on('click', function(event) {
         if (this.hash !== "") {
