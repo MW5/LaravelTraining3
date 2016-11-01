@@ -10,7 +10,7 @@ body {
     background-color: #DDDFDF;
     transform: rotate(45deg);
     border: 2px solid black;
-    transition: border 0.3s, transform 1s, margin 1s;
+    transition: border 1s, transform 1s, margin 1s, background 0.5s;
 }
 #logo_background_rotated:hover {
     border: 2px solid rgb(255,120,5);
@@ -642,6 +642,9 @@ body {
         right: -15%;
         left: -15%;
     }
+    .thumbnail_container {
+        padding-top: 140px;
+    }
     .bg_fix_pros_offer {
         background: linear-gradient(#4f4e4e,#1f1b20);
     }
@@ -699,13 +702,16 @@ body {
         display:none;
     }
 }
+@media screen and (max-width: 765px) {
+    .thumbnail_container {
+        padding-top: 70px;
+    }
+}
 
 @media screen and (max-width: 470px) {
+
     .about_thumbnail .caption h2 {
         font-size: 20px;
-    }
-    .offer_thumbnail .caption  {
-/*        min-height: 8px;*/
     }
     .offer_thumbnail .caption h3 {
         font-size: 17px;
