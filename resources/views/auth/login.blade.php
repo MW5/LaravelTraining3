@@ -21,7 +21,7 @@
                   <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="/">
-                    <div id="logo-background-rotated">
+                    <div id="logo_background_rotated">
                         <img id='nav_logo_pic' alt="Brand" src="{{URL::asset('images/PGElectric_logo.png')}}">
                     </div>
                 </a>
