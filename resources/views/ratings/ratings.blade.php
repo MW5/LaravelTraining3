@@ -44,7 +44,7 @@
                         @if($rating->verified)
                             <div class="row rating_container">
                                 <div class="col-xs-6 col-md-4 v_center">
-                                    <div class="rating_author">{{$rating->name}}</div>
+                                    <div class="rating_author">{{$rating->name}}<p>Postcode: {{$rating->postcode}}</p></div>
                                 </div>
                                 <div class="col-xs-6 col-md-4 v_center">
                                     @for($i=0; $i<5; $i++) 
@@ -77,7 +77,13 @@
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group">
                             <label for="rating_name">Your name:</label>
-                            <input id="rating_name" type="text" class="form-control" name="rating_name" placeholder="2-30 characters">{{old('rating_name')}}</input>
+                            <input id="rating_name" type="text" class="form-control"
+                                   name="rating_name" placeholder="2-30 characters" required>{{old('rating_name')}}</input>
+                        </div>
+                        <div class="form-group">
+                            <label for="rating_postcode">Your postcode:</label>
+                            <input id="rating_postcode" type="text" class="form-control"
+                                   name="rating_postcode" placeholder="6-8 characters" required>{{old('rating_postcode')}}</input>
                         </div>
                         <div class="form-group">
                             <label for="rating_grade">Grade our services:</label>
@@ -91,7 +97,8 @@
                         </div>
                         <div class="form-group">
                             <label for="rating_text">Describe our services:</label>
-                            <textarea id="rating_text" class="form-control" name="rating_text" placeholder="2-400 characters">{{old('rating_text')}}</textarea>
+                            <textarea id="rating_text" class="form-control"
+                                      name="rating_text" placeholder="2-400 characters" required>{{old('rating_text')}}</textarea>
                         </div>
                     </form>
                 </div>

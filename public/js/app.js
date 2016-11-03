@@ -82,7 +82,7 @@ $(document).ready(function() {
     setTimeout(
         function(){
             $(".alert_box").fadeOut();
-        }, 3000);
+        }, 100);
 })
 
 

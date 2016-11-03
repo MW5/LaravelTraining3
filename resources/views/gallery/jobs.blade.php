@@ -17,8 +17,8 @@
               <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/">
-                <div id="logo_background_rotated">
-                    <img id='nav_logo_pic' alt="Brand" src="{{URL::asset('images/PGElectric_logo.png')}}">
+                <div id="logo_background_gallery">
+                    <img id='nav_logo_pic_gallery' alt="Brand" src="{{URL::asset('images/PGElectric_logo.png')}}">
                 </div>
             </a>
           </div>
@@ -36,25 +36,29 @@
     @section('jobs_gallery')
     <div class='container-fluid gallery_thumbnail_container'>
         <div class='container'>
-            @foreach($jobs as $index => $job)
-                @if($index%3==0)
-                    <div class="row">
-                @endif
-                        <div class="col-sm-6 col-md-4">
-                            <a href="/jobs/{{$job->id}}">
-                                <div class="thumbnail">
-                                    <img src="{{URL::asset($job->thumbnail_src)}}" alt="thumbnail_pic_{{$index}}">
-                                    <div class="caption">
-                                        <h3>{{$job->job_heading}}</h3>
-                                        <p>{{$job->job_description}}</p>
+            @if(count($jobs) == 0)
+                    <div id="no_jobs">There are no items in this gallery yet</div>
+            @else
+                @foreach($jobs as $index => $job)
+                    @if($index%3==0)
+                        <div class="row">
+                    @endif
+                            <div class="col-sm-6 col-md-4">
+                                <a href="/jobs/{{$job->id}}">
+                                    <div class="thumbnail">
+                                        <img src="{{URL::asset($job->thumbnail_src)}}" alt="thumbnail_pic_{{$index}}">
+                                        <div class="caption">
+                                            <h3>{{$job->job_heading}}</h3>
+                                            <p>{{$job->job_description}}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>  
+                                </a>  
+                            </div>
+                    @if(($index-2)%3==0 || $index==count($jobs)-1)
                         </div>
-                @if(($index-2)%3==0 || $index==count($jobs)-1)
-                    </div>
-                @endif
-            @endforeach
+                    @endif
+                @endforeach
+            @endif
         </div>
     </div>
     @stop

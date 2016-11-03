@@ -185,6 +185,7 @@
                             @endif
                             <button form="remove_rating_form_{{$rating->id}}" type="submit" class="btn btn-primary btn_red pull-right">Remove rating</button>
                             <p>Rating author: {{$rating->name}}</p>
+                            <p>Rating author`s postcode: {{$rating->postcode}}</p>
                             <p>Rating: {{$rating->rating}}/5</p>
                             <p>Rating text: {{$rating->rating_text}}</p>
                             @if($rating->verified)

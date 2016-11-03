@@ -28,6 +28,7 @@ class pageController extends Controller
                 function ($message) {
                     $message->from('info@pgelectric.uk', 'PGelectric Contact Form');
                     $message->to('info@pgelectric.uk');
+                    $message->subject('A customer just sent you a contact request!');
                 }
             );
         Session::flash('message', 'We will contact you soon!'); 

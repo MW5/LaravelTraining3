@@ -20,14 +20,18 @@ body {
     transform: rotate(-45deg);
     transition: height 1s, transform 1s;
 }
+#logo_background_gallery {
+    margin-left: 50px;
+}
+
+#nav_logo_pic_gallery {
+    height: 120px;
+}
 
 .navbar-default {
     background-color: #DDDFDF;
     border: 2px solid black;
     opacity: 0.9;
-}
-#nav_links ul {
-    /*margin-left: 40px;*/
 }
 .navbar-brand,
 .navbar-nav li a {
@@ -323,6 +327,7 @@ body {
     padding-top: 20px;
     padding-bottom: 20px;
     text-align: left;
+    font-size: 20px;
 }
 
 /*offer*/
@@ -331,10 +336,9 @@ body {
 }
 .offer_heading_container{
     margin-top: 5vh;
-    position: relative;
-    right: 15%;
     width: 30vw;
-    padding: 1vh 0 2vh 0;
+    padding: 1vh 0 1vh 0;
+    margin-bottom: 2vh;
     background-color: #DDDFDF;
     opacity: 0.9;
     border: 1px solid #ddd;
@@ -392,6 +396,15 @@ body {
 }
 .gallery_thumbnail_container a:hover {
     text-decoration: none;
+}
+/*gallery of jobs*/
+#no_jobs {
+    display: block;
+    position: relative;
+    top: 30vh;
+    text-align: center;
+    font-size: 50px;
+    color: rgb(255,120,5);
 }
 
 /*gallery_carousel*/
