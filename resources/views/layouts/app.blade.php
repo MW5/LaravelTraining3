@@ -40,6 +40,7 @@
         @yield('carousel')
         @yield('credo')
         @yield('about_introduction')
+        @yield('checkatrade_link')
         @yield('about_pros')
         @yield('ratings_link')
         @yield('ratings')
