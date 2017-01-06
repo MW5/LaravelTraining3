@@ -67,7 +67,6 @@
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                                         <div class="form-group">
-                                            IMPORTANT! PICS MUST BE 2700 WIDE 1500 HIGH (2700x1500)
                                             <input type="file" class="form-control" name="job_pic"">
                                         </div>
 

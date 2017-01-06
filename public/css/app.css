@@ -26,6 +26,7 @@ body {
 
 #nav_logo_pic_gallery {
     height: 120px;
+    max-height: 15vh;
 }
 
 .navbar-default {
@@ -36,8 +37,9 @@ body {
 .navbar-brand,
 .navbar-nav li a {
     font-size: 30px;
-    line-height: 120px;
+    line-height: 15vh;
     height: 120px;
+    max-height: 15vh;
     padding-top: 0;
     padding-bottom: 0;
 }
@@ -77,7 +79,7 @@ body {
     opacity: 0.8;
 }
 .carousel-inner > .item {
-    transition: 2s ease-in-out left;
+    transition: 2s, ease-in-out, left;
 }
 #carousel_caption_0{
     position: absolute;
@@ -145,17 +147,14 @@ body {
     background-image: url('/images/pattern_bg_vert_mirr.png');
 }
 .thumbnail {
-    background-color: #DDDFDF;
+    background-color: rgb(221,223,223);
     opacity: 0.9;
     min-height: 500px;
     transition: 0.5s;
-}
-.thumbnail:hover {
-    opacity: 0.5;
+    border: none;
 }
 .thumbnail img {
     max-height: 300px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .offer_thumbnail {
     min-height: 275px;
@@ -421,13 +420,24 @@ body {
     background-repeat: repeat-y;
 }
 .gallery_thumbnail_container h3 {
+    text-align: center;
     color: rgb(255,120,5);
 }
 .gallery_thumbnail_container p {
+    margin: 0px 10px 0px 10px;
     color: black;
+}
+.gallery_thumbnail_container .thumbnail img {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .gallery_thumbnail_container a:hover {
     text-decoration: none;
+}
+.gallery_thumbnail_container .thumbnail:hover {
+    background-color: rgba(221,223,223,0.5);
+    -moz-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
 }
 /*gallery of jobs*/
 #no_jobs {
@@ -445,8 +455,15 @@ body {
     padding-bottom: 20px;
     background-image: url('/images/pattern_bg_vert_mirr.png');
     background-repeat: repeat-y;
-    width: 100vw;
     min-height: 100vh;
+}
+#gallery_carousel {
+    text-align: center;
+}
+#gallery_carousel img{
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 80vh;
 }
 #no_photos {
     display: block;
@@ -559,9 +576,6 @@ body {
     color: rgb(255,120,5);
 
 }
-.adm_panel_container .container {
-    width: 50vw;
-}
 
 .adm_panel_container li {
     padding-top: 5px;
@@ -570,9 +584,8 @@ body {
 }
 .adm_job_thumbnail {
     padding: 10px;
-/*    padding-left: 10px;
-    padding-right: 10px;*/
     height: 100px;
+    max-width: 130px;
 }
 .adm_heading {
     display: block;

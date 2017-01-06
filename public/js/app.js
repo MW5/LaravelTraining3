@@ -30,7 +30,7 @@ $(document).ready(function() {
                     "background-color": "#DDDFDF",
                     "transform": "rotate(45deg)",
                     "border": "2px solid black",
-                    "margin-left" : "-50px"
+                    "margin-left" : "0px"
                 });
                 $("#nav_logo_pic").css({
                     "height" : "200px",
@@ -82,7 +82,7 @@ $(document).ready(function() {
     setTimeout(
         function(){
             $(".alert_box").fadeOut();
-        }, 4000);
+        }, 2000);
 });
 
 
