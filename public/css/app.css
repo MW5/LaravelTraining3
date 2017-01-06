@@ -60,6 +60,8 @@ body {
 /*alert box*/
 .alert_box {
     text-align: center;
+    font-size: 30px;
+    font-weight: bold;
     width: 70vw;
     position: fixed;
     top: 40vh;
@@ -145,6 +147,15 @@ body {
 .thumbnail {
     background-color: #DDDFDF;
     opacity: 0.9;
+    min-height: 500px;
+    transition: 0.5s;
+}
+.thumbnail:hover {
+    opacity: 0.5;
+}
+.thumbnail img {
+    max-height: 300px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .offer_thumbnail {
     min-height: 275px;

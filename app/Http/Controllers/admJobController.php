@@ -19,8 +19,8 @@ class admJobController extends Controller
         
         $this->validate($request,[
             'job_heading'=>'required|min:2|max:50',
-            'job_description'=>'required|min:2|max:300',
-            'job_thumbnail_pic'=>'dimensions:width=2700,height=1500'
+            'job_description'=>'required|min:2|max:300'
+            //'job_thumbnail_pic'=>'dimensions:width=2700,height=1500'
         ]);
           
         $destinationPath = "images/Uploaded/";

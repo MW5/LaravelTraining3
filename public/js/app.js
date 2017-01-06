@@ -4,17 +4,17 @@ $(document).ready(function() {
     $('#carousel').carousel({
       pause: false,
       interval: 4000
-    })
+    });
     
     //scrollspy
     $('body').scrollspy({
         offset: 250,
         target: '#nav_links' 
-    })
+    });
     
     //rotate logo background when not on top of the page
         $(document).scroll(function() {
-            if($("body").scrollTop() != 0) {
+            if($("body").scrollTop() !== 0) {
                 $("#logo_background_rotated").css({
                     "border" : "none",
                     "background" : "none",
@@ -23,7 +23,7 @@ $(document).ready(function() {
                 });
                 $("#nav_logo_pic").css({
                     "height" : "120px",
-                    "transform": "rotate(0deg)",
+                    "transform": "rotate(0deg)"
                 });
             } else{
                 $("#logo_background_rotated").css({
@@ -62,8 +62,8 @@ $(document).ready(function() {
      
     //modal stuff
     $('#add_job_modal').on('shown.bs.modal', function () {
-        $('#add_job_modal_input').focus()
-    })
+        $('#add_job_modal_input').focus();
+    });
     
     //rating stars stuff
     //  Check Radio-box
@@ -82,7 +82,7 @@ $(document).ready(function() {
     setTimeout(
         function(){
             $(".alert_box").fadeOut();
-        }, 100);
-})
+        }, 4000);
+});
 
 
