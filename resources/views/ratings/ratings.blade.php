@@ -17,8 +17,8 @@
               <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">
-                <div id="logo_background_rotated">
-                    <img id='nav_logo_pic' alt="Brand" src="{{URL::asset('images/PGElectric_logo.png')}}">
+                <div id="logo_background_fixed">
+                    <img id='nav_logo_pic_fixed' alt="Brand" src="{{URL::asset('images/PGElectric_logo.png')}}">
                 </div>
             </a>
           </div>
@@ -74,16 +74,17 @@
                 </div>
                 <div class="modal-body">
                     <form id="add_rating_form" method="POST" action="/ratings/addRating">
+                        {{ csrf_field() }}
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group">
                             <label for="rating_name">Your name:</label>
                             <input id="rating_name" type="text" class="form-control"
-                                   name="rating_name" placeholder="2-30 characters" required>{{old('rating_name')}}</input>
+                                   name="rating_name" placeholder="2-30 characters" required value="{{old('rating_name')}}"></input>
                         </div>
                         <div class="form-group">
                             <label for="rating_postcode">Your postcode:</label>
                             <input id="rating_postcode" type="text" class="form-control"
-                                   name="rating_postcode" placeholder="6-8 characters" required>{{old('rating_postcode')}}</input>
+                                   name="rating_postcode" placeholder="6-8 characters" required value="{{old('rating_postcode')}}"></input>
                         </div>
                         <div class="form-group">
                             <label for="rating_grade">Grade our services:</label>

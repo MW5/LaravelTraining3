@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 use DB;
 use App\Rating;
 use Session;
+use Mail;
 
 class ratingController extends Controller
 {
@@ -27,9 +27,22 @@ class ratingController extends Controller
         $rating->postcode = $request->rating_postcode;
         $rating->rating = $request->rating_grade;
         $rating->rating_text = $request->rating_text;
-        $rating->save();
-        Session::flash('message', 'Your rating will be available shortly!'); 
-        Session::flash('alert-class', 'alert-success'); 
+        
+        if($rating->save()){
+            Session::flash('message', 'Your rating will be available shortly!'); 
+            Session::flash('alert-class', 'alert-success'); 
+            Mail::send('emails.ratingSystemMail',
+                        ['name'=>$request->name, 'postcode'=>$request->postcode,
+                            'rating'=>$request->rating, 'rating_text'=>$request->rating_text],
+                        function ($message) {
+                            $message->from('info@pgelectric.uk', 'PGelectric Rating System');
+                            $message->to('info@pgelectric.uk');
+                            $message->subject('A customer just submitted a rating!');
+                        });
+        } else {
+            Session::flash('message', 'Something went wrong. Please try again later.'); 
+            Session::flash('alert-class', 'alert-danger'); 
+        }
         return back();
     }
 }

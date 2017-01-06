@@ -17,8 +17,8 @@
               <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/">
-                <div id="logo_background_gallery">
-                    <img id='nav_logo_pic_gallery' alt="Brand" src="{{URL::asset('images/PGElectric_logo.png')}}">
+                <div id="logo_background_fixed">
+                    <img id='nav_logo_pic_fixed' alt="Brand" src="{{URL::asset('images/PGElectric_logo.png')}}">
                 </div>
             </a>
           </div>

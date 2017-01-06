@@ -26,8 +26,8 @@ Route::get('/jobs/{job}', 'galleryController@showJob');
 Route::get('/admpanel', 'admController@showPanel');
 Route::post('/admpanel/addJob', 'admJobController@addJob');
 Route::post('/admpanel/removeJob/{job}', 'admJobController@removeJob');
-Route::post('/admpanel/addPic/', 'admJobPicController@addPic');
-Route::post('/admpanel/removePics/', 'admJobPicController@removePics');
+Route::post('/admpanel/addPic', 'admJobPicController@addPic');
+Route::post('/admpanel/removePics', 'admJobPicController@removePics');
 Route::patch('/admpanel/editJobHeading/{job}', 'admJobController@editHeading');
 Route::patch('/admpanel/editJobDescription/{job}', 'admJobController@editDescription');
 

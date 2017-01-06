@@ -20,8 +20,8 @@
               <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#gallery_manager">
-                <div id="logo_background_rotated">
-                    <img id='nav_logo_pic' alt="Brand" src="images/PGElectric_logo.png">
+                <div id="logo_background_fixed">
+                    <img id='nav_logo_pic_fixed' alt="Brand" src="images/PGElectric_logo.png">
                 </div>
             </a>
           </div>
@@ -145,7 +145,7 @@
                         </span>
                     </form>
                     <ol>
-                        <form id="remove_pics_form_{{$job->id}}" method="POST" action="/admpanel/removePics/">
+                        <form id="remove_pics_form_{{$job->id}}" method="POST" action="/admpanel/removePics">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         @foreach ($job_pics as $jobPic)
                             @if($jobPic->job_id == $job->id)
@@ -216,7 +216,6 @@
                         
                         <div class="form-group">
                             <label for="job_thumbnail_pic">Job thumbnail picture:</label>
-                            IMPORTANT! PICS MUST BE 2700 WIDE 1500 HIGH (2700x1500)
                             <input id="job_thumbnail_pic" type="file" class="form-control" name="job_thumbnail_pic">
                         </div>
                         

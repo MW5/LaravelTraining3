@@ -22,7 +22,7 @@ $(document).ready(function() {
                     "margin-left" : "50px"
                 });
                 $("#nav_logo_pic").css({
-                    "height" : "120px",
+                    "height" : "15vh",
                     "transform": "rotate(0deg)"
                 });
             } else{

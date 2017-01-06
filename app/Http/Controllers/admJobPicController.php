@@ -16,11 +16,7 @@ class admJobPicController extends Controller
     {
         $this->middleware('auth');
     }
-    function addPic(Request $request) {
-//        $this->validate($request,[
-//            'job_pic'=>'dimensions:width=2700,height=1500'
-//        ]);
-          
+    function addPic(Request $request) {     
         $destinationPath = "images/Uploaded/Job_$request->job_id/";
         $name = $request->job_pic->getClientOriginalName();
         $request->job_pic->move($destinationPath, $name);
